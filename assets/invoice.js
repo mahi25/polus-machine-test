@@ -64,5 +64,5 @@ function calculateOverallTotal() {
             overAllTotal = (overAllTotal - parseFloat(discount)).toFixed(2);
         }
     }
-    $('#totalAmt').val(overAllTotal);
+    $('#totalAmt').val('$' + overAllTotal);
 }
