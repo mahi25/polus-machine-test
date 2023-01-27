@@ -13,7 +13,13 @@ class Invoice extends CI_Controller {
 
 	public function generateInvoice() {
         $this->load->library('pdf');
-        $data = $this->input->post();
+        $data['names'] = $this->input->post('name');
+        $data['quantity'] = $this->input->post('quantity');
+        $data['tax'] = $this->input->post('tax');
+        $data['price'] = $this->input->post('price');
+        $data['itemTotal'] = $this->input->post('itemTotalActual');
+        $data['discount'] = $this->input->post('discount');
+        $data['totalAmt'] = $this->input->post('totalAmt');
         $html = $this->load->view('pdf_view', $data, true);
         $this->pdf->createPDF($html, 'mypdf', false);
     }

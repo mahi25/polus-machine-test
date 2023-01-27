@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Tax</label>
-                                    <select class="form-control calculate-line-total tax" data-item-parent="1">
+                                    <select class="form-control calculate-line-total tax" name="tax[]" data-item-parent="1">
                                         <option value="">0%</option>
                                         <option value="1">1%</option>
                                         <option value="5">5</option>
