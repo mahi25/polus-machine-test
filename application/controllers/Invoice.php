@@ -11,6 +11,7 @@ class Invoice extends CI_Controller {
 		$this->load->view('generate_invoice');
 	}
 
+	//function to handle the submit and give a pdf preview
 	public function generateInvoice() {
         $this->load->library('pdf');
         $data['names'] = $this->input->post('name');
@@ -21,6 +22,6 @@ class Invoice extends CI_Controller {
         $data['discount'] = $this->input->post('discount');
         $data['totalAmt'] = $this->input->post('totalAmt');
         $html = $this->load->view('pdf_view', $data, true);
-        $this->pdf->createPDF($html, 'mypdf', false);
+        $this->pdf->createPDF($html, 'invoice', false);
     }
 }
