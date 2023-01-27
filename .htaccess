@@ -1,0 +1,23 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule .* index.php/$0 [PT,L]
+
+RewriteCond %{REQUEST_URI} !^/alive\.txt$
+
+<FilesMatch "\.(?i:ico|css|js|swf)$">
+  <IfModule mod_headers.c>
+    Header set Cache-Control "max-age=172800, public, must-revalidate"
+  </IfModule>
+</FilesMatch>
+
+<FilesMatch "\.htaccess|composer\.json|package\.json|package-lock\.json|Gruntfile\.js|env\.prod\.php|postcss\.config\.js|webpack\.common\.js|webpack\.dev\.js|webpack\.prod\.js">
+    Order allow,deny 
+    Deny from all 
+</FilesMatch>
+
+<FilesMatch "\.(gitignore|yml|lock|phar|md)$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
