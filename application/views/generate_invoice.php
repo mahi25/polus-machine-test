@@ -76,7 +76,7 @@
                         <!-- /.card-body -->
 
                         <div class="card-footer">
-                            <button type="submit" name="generateInvoice" class="btn btn-info">Submit</button>
+                            <button type="submit" name="generateInvoice" class="btn btn-info">Generate Invoice</button>
                         </div>
                     </form>
                 </div>

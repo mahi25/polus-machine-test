@@ -22,22 +22,6 @@ $(document).ready(function () {
         var itemParent = $(this).attr('data-item-parent');
         $('#item-' + itemParent).remove();
     })
-
-    /*$('#invoiceForm').on('submit', function (e) {
-        console.log('submit')
-        e.preventDefault();
-        var data = $('#invoiceForm').serialize();
-        var baseUrl = $('#base_url').val();
-        $.ajax({
-            url: baseUrl + "/generateInvoice",
-            data: data,
-            type: 'POST',
-            dataType: "json",
-            success: function (data) {
-                console.log(data);
-            }
-        });
-    })*/
 })
 
 function calculateLineItem(itemNo) {
@@ -73,8 +57,8 @@ function calculateOverallTotal() {
         overAllTotal += val;
     });
     if (discount) {
-        if(discount.includes("%")) {
-            var discountValue = parseFloat(discount.replace('%',''));
+        if (discount.includes("%")) {
+            var discountValue = parseFloat(discount.replace('%', ''));
             overAllTotal = (overAllTotal - (overAllTotal * (discountValue / 100))).toFixed(2)
         } else {
             overAllTotal = (overAllTotal - parseFloat(discount)).toFixed(2);
